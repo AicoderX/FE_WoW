@@ -8,7 +8,7 @@
 
 - HTML(5)
 - CSS(3)
-- JavaScript
+- [JavaScript](./docs/js.md)
 - 移动 Web
 - 网络部分
 - 性能相关

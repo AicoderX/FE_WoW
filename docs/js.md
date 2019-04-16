@@ -86,3 +86,21 @@ m : { '0': 3,
   '(': 1,
   ')': 1 }
 ```
+
+3. 程序运行结果
+
+```js
+var a = 10;
+(function () {
+    console.log(a)
+    a = 5
+    console.log(window.a)
+    var a = 20;
+    console.log(a)
+})()
+```
+
+代码解析：
+依次输出：undefined -> 10 -> 20
+
+> JavaScript的作用域是静态作用域，非执行时期才确定。另外函数内部考察的是变量提升。

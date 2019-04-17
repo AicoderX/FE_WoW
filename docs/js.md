@@ -104,3 +104,23 @@ var a = 10;
 依次输出：undefined -> 10 -> 20
 
 > JavaScript的作用域是静态作用域，非执行时期才确定。另外函数内部考察的是变量提升。
+
+4. js闭包题目
+
+```js
+// 以下代码运行的结果是：？
+for(var i = 0; i < 10; i++) {
+  setTimeout(()=>{
+    console.log(a);
+  }, 1000);
+}
+
+// 解决办法
+for(var i = 0; i < 10; i++) {
+  (function(a){
+    setTimeout(()=>{
+      console.log(a);
+    }, 1000)
+  })(i);
+}
+```

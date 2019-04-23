@@ -105,6 +105,19 @@ var a = 10;
 
 > JavaScript的作用域是静态作用域，非执行时期才确定。另外函数内部考察的是变量提升。
 
+类似题目2：
+
+```js
+console.log(a + 9);  // undefined =>(Number) NaN,   NaN + 9 => NaN
+var a = 10;
+function Add() {
+  console.log(a);  // undefined
+  var a = 8;
+  console.log(a);  // 8
+}
+Add();  // a不是一个函数，抛出异常
+```
+
 4. js闭包题目
 
 ```js
@@ -123,4 +136,25 @@ for(var i = 0; i < 10; i++) {
     }, 1000)
   })(i);
 }
+```
+
+5. 计数排序算法题目
+
+```js
+var t = [1, 8, 9, 10, 2, 9, 8, 10, 33, 55, 45, 45, 3, 32, 19];
+
+// 数组t为包含 1-100之间的正整数值的无序数组（数组元素的个数不确定）
+
+// 1. 请输出  统计的每个数组元素出现的次数。
+// 2. 根据元素出现的次数，合并输出排序后的结果。
+
+var arr = Array(101).fill(0);
+t.forEach(function(item) {
+  arr[item]++;
+})
+var result = [];
+arr.forEach(function(item, index) {
+  result = result.concat(Array(item).fill(index));
+})
+console.log('result :', result);
 ```

@@ -57,4 +57,3 @@ function c() {
 function d() {
   console.log(3);
 }
-

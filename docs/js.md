@@ -158,3 +158,42 @@ arr.forEach(function(item, index) {
 })
 console.log('result :', result);
 ```
+
+6. 函数防抖和事件节流。
+
+事件节流： 类似mousemove等事件需要持续触发的事件，需要进行节流处理，就是每隔30ms执行一次，期间不执行。
+
+事件防抖就是： 30ms内执行一次，如果再次执行，往后继续拖30ms。一般用于：按钮点击多次的处理等。
+
+```js
+// 函数防抖
+function debounce(fn, wait) {
+  var params = [].slice.call(fn, 1);
+  var timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, wait);
+  }
+}
+
+// 函数节流
+function throttle(fn, gapTime) {
+  let _lastTime = null;
+
+  return function () {
+    let _nowTime = + new Date()
+    if (_nowTime - _lastTime > gapTime || !_lastTime) {
+      fn();
+      _lastTime = _nowTime
+    }
+  }
+}
+
+let fn = ()=>{
+  console.log('boom')
+}
+
+setInterval(throttle(fn,1000),10)
+```

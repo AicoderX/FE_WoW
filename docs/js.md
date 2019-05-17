@@ -178,6 +178,12 @@ function debounce(fn, wait) {
   }
 }
 
+let fn = debounce((a)=>{
+  console.log(a);
+}, 400);
+
+fn(333);
+
 // 函数节流
 function throttle(fn, gapTime) {
   let _lastTime = null;
@@ -196,4 +202,70 @@ let fn = ()=>{
 }
 
 setInterval(throttle(fn,1000),10)
+```
+
+7. 以下程序输出是？
+
+```js
+var out = 25,
+inner = {
+  out: 20,
+  func: function () {
+    var out = 30;
+    return this.out;
+  }
+};
+console.log((Math.random, inner.func)());
+console.log(inner.func());
+console.log((inner.func)());
+console.log((inner.func = inner.func)());
+```
+
+8. 请输出以下运行结果？
+
+```js
+if (!("a" in window)) {
+  var a = 1;
+}
+console.log(a);
+```
+
+9. 请输出以下运行结果？
+
+```js
+function a(x) {
+  return x * 2;
+}
+var a;
+console.log(a);
+```
+
+10. 请输出以下运行结果？
+
+```js
+var a = 1;
+
+var b = function a(x) {
+  x && a(--x);
+};
+console.log(a);
+```
+
+11. 请输出以下运行结果？
+
+```js
+function b(x, y, a) {
+  arguments[2] = 10;
+  console.log(a);
+}
+b(1, 2, 3);
+```
+
+12. 请输出以下运行结果？
+
+```js
+function a() {
+  console.log(this);
+}
+a.call(null);  // null 传入的时候，默认走的window对象
 ```
